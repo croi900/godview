@@ -1,0 +1,8 @@
+[package]
+name = "godview"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+postgis_diesel = "2.4.1"
+google-places-api = { git = "https://github.com/ZmoleCristian/google-places-api-rs.git", branch = "croi-dev" }
