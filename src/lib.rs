@@ -24,12 +24,16 @@ mod tests {
         println!("{:?}",polygon);
         //
         let result = PolyFillSearch::new()
-            .with_type(PlaceTypes::Accounting)
+            .with_type(PlaceTypes::Hospital)
             .with_polygon(polygon)
             .execute()
             .await;
 
         println!("Found {} places", result.len());
+
+        let unique: HashSet<String> = HashSet::from_iter(result);
+
+        println!("Found {} unique places", unique.len());
     }
 }
 

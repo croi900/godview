@@ -2,6 +2,9 @@
 name = "godview"
 version = "0.1.0"
 edition = "2021"
+description = "A library that allows you to efficiently and cost effectively search for places based on a configurable and extensible set of criteria using the Google Places API."
+license = "MIT"
+authors = ["Cristian Croitoru <cristianalexandrucroitoru@gmail.com"]
 
 [dependencies]
 postgis_diesel = "2.4.1"
