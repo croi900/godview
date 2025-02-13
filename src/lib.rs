@@ -1,16 +1,35 @@
 mod polyfill;
-
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::polyfill::PolyFillSearch;
+    use std::collections::HashSet;
+    use google_places_api::types::constants::{PlaceSearchPlaceFields, PlaceTypes};
+    use google_places_api::types::constants::place::Location;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+    #[tokio::test]
+    async fn test_types() {
+
+        let mut polygon: Vec<Location> = Vec::new();
+        for line in std::fs::read_to_string("Cluj-Napoca.txt").unwrap().lines() {
+            if line.len() == 0 {
+                continue;
+            }
+            let mut coords = line.split_whitespace();
+            polygon.push(Location { // coords are stored long lat
+                lon: Some(coords.next().unwrap().parse::<f64>().unwrap()),
+                lat: Some(coords.next().unwrap().parse::<f64>().unwrap()),
+            });
+        }
+        println!("{:?}",polygon);
+        //
+        let result = PolyFillSearch::new()
+            .with_type(PlaceTypes::Accounting)
+            .with_polygon(polygon)
+            .execute()
+            .await;
+
+        println!("Found {} places", result.len());
     }
 }
+

@@ -6,3 +6,7 @@ edition = "2021"
 [dependencies]
 postgis_diesel = "2.4.1"
 google-places-api = { git = "https://github.com/ZmoleCristian/google-places-api-rs.git", branch = "croi-dev" }
+tokio = "1.43.0"
+geo = "0.29.3"
+futures = "0.3.31"
+libm = "0.2.11"
