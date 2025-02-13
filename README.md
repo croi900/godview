@@ -5,7 +5,7 @@ using the Google Places API.
 Examples:
 
 * Find a place by type
-```rust
+```
 // For this example we load the long and lat 
 // bounds fo the polygon from a text file
 // but they can be obtained either way
