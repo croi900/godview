@@ -1,4 +1,4 @@
-mod polyfill;
+pub mod polyfill;
 #[cfg(test)]
 mod tests {
     use super::*;
