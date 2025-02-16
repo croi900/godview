@@ -7,7 +7,6 @@ use google_places_api::types::NearbySearchResult;
 use google_places_api::endpoints::find_place::FindPlace;
 use geo::{algorithm::contains::Contains, prelude::BoundingRect, Coord, Polygon, Rect, ToRadians};
 use futures::{stream, StreamExt};
-use libm::fabs;
 
 pub struct PolyFillSearch {
     query_text : Option<String>,
@@ -119,6 +118,14 @@ impl PolyFillSearch {
         final_results
 
 
+    }
+}
+
+fn fabs(p0: f64) -> f64{
+    if p0 < 0.0 {
+        -p0
+    } else {
+        p0
     }
 }
 

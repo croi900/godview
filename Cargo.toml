@@ -12,4 +12,3 @@ google-places-api = { git = "https://github.com/ZmoleCristian/google-places-api-
 tokio = "1.43.0"
 geo = "0.29.3"
 futures = "0.3.31"
-libm = "0.2.11"
